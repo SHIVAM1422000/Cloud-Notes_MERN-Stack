@@ -3,7 +3,7 @@ connectToMongo();
 
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(express.json());
 
@@ -18,4 +18,19 @@ app.use('/api/notes',require('./routes/notes'));
 
 app.listen(port, () => {
     console.log(`Serving On: http://localhost:${port}`)
-  })
+  });
+
+
+
+  // http://localhost:5000/api/auth/create_user
+
+
+  /** 
+   
+  {
+    "name":"Ladli",
+    "email":"radha86@gmail.com",
+    "password":"shyam"
+}
+
+**/
