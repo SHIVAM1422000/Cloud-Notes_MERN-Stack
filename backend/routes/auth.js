@@ -3,7 +3,8 @@ const router = express.Router();
 const User= require('../models/User');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const JWT_Secret="RadhaBallabhSriHarivansh``````";
+const JWT_Secret="RadhaBallabhSriHarivansh";
+const fetchuser=require('../middleware/fetchuser');
 
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required
@@ -89,10 +90,41 @@ router.post('/login',[
    var jwt = require('jsonwebtoken');
    var token = jwt.sign({ id: user.id }, JWT_Secret);
    console.log(token);
-   res.json(token);
+   res.json({token:token});
 
 }catch(error){
 
+  console.log(error.message);
+  res.status(500).send("Internal Server Error");
+
+}
+
+});
+
+
+
+// ROUTE 3: Getting User Details using: POST "/api/auth/getuser". 
+// ===================================================================
+
+/*
+once the user logs in to give his detail we'll use the jws token to get 
+the user id and then we'll find the user by id and then use it further
+for that here we use fetchuser middleware to get the user details.
+*/
+
+
+router.post('/getuser',fetchuser,async (req,res)=>{
+ 
+try{
+  //req.user comes from the fetchuser middleware and it contains the user id
+  
+  let userId = req.user.id;
+
+  //it will send every thing except password
+  const user = await User.findById(userId).select("-password");
+  res.send(user);
+
+}catch(error){
   console.log(error.message);
   res.status(500).send("Internal Server Error");
 
