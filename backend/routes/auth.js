@@ -5,13 +5,13 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const JWT_Secret="RadhaBallabhSriHarivansh";
 const fetchuser=require('../middleware/fetchuser');
-
+  
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required
 // ============================================================================================
 router.post('/create_user',[
-    body('name',"wrong").isLength({ min: 3 }),
-    body('email',"wrong").isEmail(),
+    body('name',"name must be 3 chars long").isLength({ min: 3 }),
+    body('email',"This is not a corect email format").isEmail(),
     body('password',"wrong").isLength({ min: 5 })
 ],async (req,res)=>{
    // If there are errors, return Bad request and the errors
