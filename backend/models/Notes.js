@@ -7,7 +7,7 @@ const NotesSchema = new Schema({
   //reference is same as of the name of the User model in the export line ie: line 11 of models/user.js
   user:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
   title:{type:String , required:true},
-  description:{type:String , required:true , unique:true},
+  description:{type:String , required:true},
   tag:{type:String , default:"General"},
   date:{type:String , default:Date.now}
 });
