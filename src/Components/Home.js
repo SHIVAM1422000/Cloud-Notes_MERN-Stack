@@ -28,10 +28,13 @@ function Home(props) {
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
                </div> 
-           <h1 className='mt-4'>Your Notes</h1> 
-     {notes.map((note)=>{
-           return <NoteItem note={note}/>
+           <h1 className='mt-2'>Your Notes</h1> 
+          <div className="row  mt-2">
+                 {notes.map((my_note)=>{
+           return <NoteItem note={my_note}/>
      })}
+              </div> 
+  
 
         </div>
     );
