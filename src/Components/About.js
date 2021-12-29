@@ -1,18 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 
-export class About extends Component {
-    // static propTypes = {
-
-    // }
-
-    render() {
-        return (
-            <div>
-                <h1> I am about Radhey</h1>
-            </div>
-        )
-    }
+function About() {
+    return (
+        <div>
+            <h1>I am About Radhe</h1>
+        </div>
+    )
 }
 
 export default About
