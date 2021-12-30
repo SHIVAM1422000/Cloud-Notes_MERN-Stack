@@ -7,12 +7,15 @@ function NoteItem(props) {
       
        <>
       <div className="col-md-4 mt-4">  
-        <div class="card" style={{width: "18rem"}}>
-           <div class="card-body">
-              <h5 class="card-title">{props.note.title}</h5>
-              <p class="card-text">{props.note.description}  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam labore facere corrupti, quidem fugiat deserunt recusandae molestiae suscipit, veritatis reiciendis. 
-              Assumenda, eveniet. Porro aliquam accusamus adipisci 
-              assumenda iusto distinctio animi necessitatibus deserunt debitis?</p>
+        <div className="card" style={{width: "20rem"}}>
+           <div className="card-body">
+               <div className="d-flex align-items-centre">
+                     <h5 className="card-title">{props.note.title}</h5>
+                     <i className="far fa-trash-alt ms-auto"></i>
+                     <i className="fas fa-edit ms-2"></i>
+               </div>
+              <p className="card-text">{props.note.description}</p>
+              
            </div>
         </div>
      </div>
