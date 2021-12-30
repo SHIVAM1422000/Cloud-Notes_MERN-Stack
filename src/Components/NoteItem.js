@@ -12,7 +12,7 @@ function NoteItem(props) {
       
        <>
       <div className="col-md-4 mt-4">  
-        <div className="card" style={{width: "20rem"}}>
+        <div className="card">
            <div className="card-body">
                <div className="d-flex align-items-centre">
                      <h5 className="card-title">{props.note.title}</h5>

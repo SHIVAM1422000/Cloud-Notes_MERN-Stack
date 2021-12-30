@@ -1,10 +1,17 @@
-import React ,{useContext} from 'react';
+import React ,{useContext,useEffect} from 'react';
 import NoteContext from '../Context/Notes/noteContext';
 import NoteItem from './NoteItem';
 
 function Note(props) {
     const context = useContext(NoteContext);
-    const {notes} = context;
+    const {notes,getNote} = context;
+
+      // Similar to componentDidMount and componentDidUpdate:
+    useEffect(()=>{
+        getNote();
+    },[]);
+
+
     return (
         <div>
              <h1 className='mt-2'>Your Notes</h1> 

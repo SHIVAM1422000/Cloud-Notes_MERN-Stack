@@ -1,10 +1,12 @@
 const connectToMongo=require('./db');
 connectToMongo();
-
 const express = require('express');
 const app = express();
 const port = 5000;
 
+//cors is a middle ware b/w frontend and backend to fetch data
+var cors = require('cors');
+app.use(cors());
 app.use(express.json());
 
 

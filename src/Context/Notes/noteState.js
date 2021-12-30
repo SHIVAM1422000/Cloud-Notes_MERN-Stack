@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const NoteState = (props) =>{
 
+  /** 
   const initial_notes=[
     {
       "_id": "61cab007dc029d43cd399e07",
@@ -43,7 +44,50 @@ const NoteState = (props) =>{
     }
   ]
 
+  */
+
+  const initial_notes=[];
+
 const [notes,setNotes] = useState(initial_notes);
+
+
+/** 
+ * 
+const response = await fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data) 
+});
+return response.json(); 
+
+*/
+
+
+
+//fetch all notes
+const getNote =async () => {
+
+  //Add Api Call:
+  const response = await fetch("http://localhost:5000/api/notes/fetchnotes", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'auth-token':' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzk5OTljOTBiZTg3ODYwNGU2MzY5MyIsImlhdCI6MTY0MDYwMjcyMX0.MyUJHmvHbUiWlhyZPnfLch5wcR3SVjJ14KXeSpF3uU4'
+    },
+  });
+
+  let json=await response.json(); 
+
+  //function for frontend:
+   console.log(json);
+   setNotes(json);
+
+  }
+
+
+ 
 
 
 //adds new Note 
@@ -78,13 +122,22 @@ const [notes,setNotes] = useState(initial_notes);
    
 }
 
+
+
 //edit a note
-const editNote = () => {
-   
+const editNote = (id,title,description,tag) => {
+   for(let index=0;index<notes.length;index++){
+     const note=notes[index];
+     if(note._id==id){
+       note.title=title;
+       note.description=description;
+       note.tag=tag;
+     }
+   }
 }
     
    return (
-    <NoteContext.Provider value={{notes,addNote,deleteNote,editNote}}>
+    <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNote}}>
       {props.children}
     </NoteContext.Provider>
   ); 
