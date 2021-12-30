@@ -49,8 +49,9 @@ const [notes,setNotes] = useState(initial_notes);
 //adds new Note 
  const addNote = (title,description,tag) => {
 
+  //Add Api Call
    let note={
-    "_id": "61caed2f540ca1c3b06dd425",
+    "_id": "1w1",
     "user": "61c9999c90be878604e63693",
     "title": title,
     "description": description,
@@ -68,7 +69,12 @@ const [notes,setNotes] = useState(initial_notes);
 
 
  //delete a note
- const deleteNote = () => {
+ const deleteNote = (id) => {
+   
+  // console.log(n)
+  let newNote=notes.filter((note)=>(note._id!==id));
+
+  setNotes(newNote);
    
 }
 
