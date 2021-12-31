@@ -6,7 +6,7 @@ function Home(props) {
 
  const context = useContext(NoteContext);
  const {notes} = context;
- console.log(notes);
+//  console.log(notes);
 
     return (
         <div>
