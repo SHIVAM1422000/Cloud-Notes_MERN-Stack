@@ -59,21 +59,10 @@ const addNote = async (title,description,tag) => {
   });
 
   let json=await response.json(); 
-  // console.log(json);
 
-  //Frontedn Part
+
+  //Frontedn Part:
   // ***************************
-  //  let note={
-  //   "_id": "1w1",
-  //   "user": "61c9999c90be878604e63693",
-  //   "title": title,
-  //   "description": description,
-  //   "tag": tag,
-  //   "date": "1640688943651",
-  //   "__v": 0
-  // }
-
-
   setNotes(notes.concat(json));
 
  }
@@ -129,7 +118,7 @@ const editNote = async (id,title,description,tag) => {
   //logic for frontend 
    for(let index=0;index<notes.length;index++){
      const note=notes[index];
-     if(note._id==id){
+     if(note._id===id){
        note.title=title;
        note.description=description;
        note.tag=tag;

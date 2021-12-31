@@ -12,7 +12,6 @@ function Home(props) {
         <div>
           <AddNote/>
           <Note/>
-
         </div>
     );
 }
