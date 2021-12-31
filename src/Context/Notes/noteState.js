@@ -48,8 +48,9 @@ const getNote =async () => {
 const addNote = async (title,description,tag) => {
 
   //Add Api Call:
+  // ************************
   const response = await fetch(`${host}/api/notes/addnotes`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'auth-token':' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzk5OTljOTBiZTg3ODYwNGU2MzY5MyIsImlhdCI6MTY0MDYwMjcyMX0.MyUJHmvHbUiWlhyZPnfLch5wcR3SVjJ14KXeSpF3uU4'
@@ -58,21 +59,22 @@ const addNote = async (title,description,tag) => {
   });
 
   let json=await response.json(); 
-
+  // console.log(json);
 
   //Frontedn Part
-   let note={
-    "_id": "1w1",
-    "user": "61c9999c90be878604e63693",
-    "title": title,
-    "description": description,
-    "tag": tag,
-    "date": "1640688943651",
-    "__v": 0
-  }
+  // ***************************
+  //  let note={
+  //   "_id": "1w1",
+  //   "user": "61c9999c90be878604e63693",
+  //   "title": title,
+  //   "description": description,
+  //   "tag": tag,
+  //   "date": "1640688943651",
+  //   "__v": 0
+  // }
 
 
-  setNotes(notes.concat(note));
+  setNotes(notes.concat(json));
 
  }
 
