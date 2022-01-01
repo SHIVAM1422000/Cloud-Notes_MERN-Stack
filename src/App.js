@@ -4,12 +4,15 @@ import Home from './Components/Home';
 import About from './Components/About';
 import NoteState from './Context/Notes/noteState';
 // import NoteContext from './Context/Notes/noteContext';
+import Login from './Components/Login';
+import SignUp from './Components/SignUp';
 import Alert from './Components/Alert';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
 
 
 function App() {
@@ -23,6 +26,8 @@ function App() {
         <Switch>
           <Route exact path="/"><Home/></Route>
           <Route exact path="/about"> <About/></Route>
+          <Route exact path="/login"> <Login/></Route>
+          <Route exact path="/signup"> <SignUp/></Route>
         </Switch>
    </div>
     </Router>

@@ -14,17 +14,18 @@ router.post('/create_user',[
     body('email',"This is not a corect email format").isEmail(),
     body('password',"wrong").isLength({ min: 5 })
 ],async (req,res)=>{
+  let success=false;
    // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({success,error: "Wrong Credentials" });
     }
 
     try{
         // Check whether the user with this email exists already     
       let user=await User.findOne({email:req.body.email});
       if(user){
-        return res.status(400).json({ error: "Sorry a user with this email already exists" });
+        return res.status(400).json({success,error: "Sorry a user with this email already exists" });
       }
       
       //Password salting and hashing
@@ -40,11 +41,11 @@ router.post('/create_user',[
 
      //json web token
      var jwt = require('jsonwebtoken');
-     var token = jwt.sign({ id: user.id }, JWT_Secret);
+     var token = jwt.sign({id: user.id }, JWT_Secret);
+     console.log("Successfully Created A User");
      console.log(token);
-
-
-    res.json(user);
+     success=true; 
+     res.json({success,user:user});
 
   }catch(error){
  
@@ -66,34 +67,42 @@ router.post('/login',[
   body('email', 'Enter a valid email').isEmail(), 
   body('password', 'Password cannot be blank').exists(), 
 ],async (req,res)=>{
+
+  let success=false;
  // If there are errors, return Bad request and the errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ error: "Please try to login with correct credentials" });
+    console.log("Faied Login");
+    return res.status(400).json({success,error: "Please try to login with correct credentials" });
   }
 
   try{
       // Check whether the user with this email exists or not     
     let user=await User.findOne({email:req.body.email});
     if(!user){
-      return res.status(400).json({ error: "Please try to login with correct credentials" });
+      console.log("Faied Login");
+      return res.status(400).json({success,error: "Please try to login with correct credentials" });
     }
 
 
     //Password verification
     const passwordCompare = await bcrypt.compare(req.body.password, user.password);
     if(!passwordCompare){
-      return res.status(400).json({error: "Wrong Credentials"});
+      console.log("Faied Login");
+      return res.status(400).json({success,error: "Wrong Credentials"});
     }
 
    //json web token
    var jwt = require('jsonwebtoken');
    var token = jwt.sign({ id: user.id }, JWT_Secret);
+   console.log("Login Success");
+   success=true;
    console.log(token);
-   res.json({token:token});
+   res.json({success,token:token});
 
 }catch(error){
 
+  console.log("Faied Login");
   console.log(error.message);
   res.status(500).send("Internal Server Error");
 
