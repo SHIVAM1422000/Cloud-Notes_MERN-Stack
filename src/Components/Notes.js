@@ -1,31 +1,31 @@
 import React ,{useContext,useEffect,useRef,useState} from 'react';
 import NoteContext from '../Context/Notes/noteContext';
-import AddNote from './AddNote';
+// import AddNote from './AddNote';
 import NoteItem from './NoteItem';
 
 function Note(props) {
     const context = useContext(NoteContext);
-    const {notes,getNote} = context;
+    const {notes,getNote,editNote} = context;
 
       // Similar to componentDidMount and componentDidUpdate:
     useEffect(()=>{
-        getNote();
+        getNote()
     },[]);
 
-    const [note, setNote] = useState({etitle: "", edescription: "", etag: ""})
-
+    const [note, setNote] = useState({id: "", etitle: "", edescription: "", etag: ""})
     const ref=useRef(null);
+    const refClose = useRef(null)
 
+   
     const updateNote=(currentNote)=>{
         ref.current.click();
-        setNote({etitle: currentNote.title, edescription: currentNote.description, etag:currentNote.tag})
-    }
+        setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag:currentNote.tag})    }
 
     
     const handleClick = (e)=>{
-        console.log("Updating the note...", note)
-        e.preventDefault(); 
-    }
+        editNote(note.id,note.etitle, note.edescription, note.etag);
+         refClose.current.click();
+      }
 
     const onChange = (e)=>{
         setNote({...note, [e.target.name]: e.target.value})
@@ -64,7 +64,7 @@ function Note(props) {
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
                         </div>
                     </div>

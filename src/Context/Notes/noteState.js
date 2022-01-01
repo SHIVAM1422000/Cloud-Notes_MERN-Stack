@@ -105,7 +105,7 @@ const editNote = async (id,title,description,tag) => {
 
     //Add Api Call:
     const response = await fetch(`${host}/api/notes/update/${id}`, {
-      method: 'GET',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'auth-token':' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzk5OTljOTBiZTg3ODYwNGU2MzY5MyIsImlhdCI6MTY0MDYwMjcyMX0.MyUJHmvHbUiWlhyZPnfLch5wcR3SVjJ14KXeSpF3uU4'
@@ -113,17 +113,23 @@ const editNote = async (id,title,description,tag) => {
       body: JSON.stringify({title,description,tag}) 
     });
   
-    let json=await response.json(); 
+    let json=await response.json();
+    console.log(json); 
 
+    let newNotes = JSON.parse(JSON.stringify(notes));
   //logic for frontend 
-   for(let index=0;index<notes.length;index++){
-     const note=notes[index];
-     if(note._id===id){
-       note.title=title;
-       note.description=description;
-       note.tag=tag;
+   for(let index=0;index<newNotes.length;index++){
+     if(newNotes[index]._id===id){
+      newNotes[index].title=title;
+      newNotes[index].description=description;
+      newNotes[index].tag=tag;
+      break;
      }
    }
+   
+   
+   setNotes(newNotes);
+
 }
     
    return (
