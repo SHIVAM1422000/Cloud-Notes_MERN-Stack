@@ -50,7 +50,7 @@ router.post('/create_user',[
   }catch(error){
  
     console.log(error.message);
-    res.status(500).send("Internal Server Error");
+    return res.status(400).json({success,error: "Internal Server Error"});
 
   }
 
@@ -104,8 +104,7 @@ router.post('/login',[
 
   console.log("Faied Login");
   console.log(error.message);
-  res.status(500).send("Internal Server Error");
-
+  return res.status(400).json({success,error: "Internal Server Error"});
 }
 
 });

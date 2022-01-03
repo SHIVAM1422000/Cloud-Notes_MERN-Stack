@@ -3,8 +3,15 @@ import { useHistory } from "react-router-dom";
 
 
 
-function SignUp() {
+function SignUp(props) {
 
+    
+    const [credentials, setCredentials] = useState({name:"",email: "", password: ""}) 
+
+    const onChange = (e)=>{
+        setCredentials({...credentials, [e.target.name]: e.target.value})
+    }
+  
 
     let history = useHistory();
 
@@ -21,24 +28,27 @@ function SignUp() {
         console.log(json);
         if (json.success){
             // Save the auth token and redirect
-            localStorage.setItem('token', json.authtoken); 
+            console.log('User  Created');
+            console.log(json);
+            localStorage.setItem('token', json.token); 
             history.push("/");
+            props.showAlert("Signed Up Successfully","success");
 
         }
         else{
+            props.showAlert("Invalid credentials","danger");
+
             alert("Invalid credentials");
         }
     }
 
-    const [credentials, setCredentials] = useState({name:"",email: "", password: ""}) 
-
-    const onChange = (e)=>{
-        setCredentials({...credentials, [e.target.name]: e.target.value})
-    }
-  
 
     return (
         <div className="container">
+
+             <h1>Create an account on Cloud Notes</h1>
+
+
             <form onSubmit={handleSubmit}>
 
                 <div className="mb-3">

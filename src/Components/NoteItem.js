@@ -18,8 +18,8 @@ function NoteItem(props) {
            <div className="card-body">
                <div className="d-flex align-items-centre">
                      <h5 className="card-title">{props.note.title}</h5>
-                     <i className="far fa-trash-alt ms-auto" onClick={()=>{deleteNote(props.note._id)}}></i>
-                     <i className="fas fa-edit ms-2" onClick={()=>{props.updateNote(props.note)}}></i>
+                     <i className="far fa-trash-alt ms-auto" onClick={()=>{deleteNote(props.note._id); props.showAlert("Note Deleted  Successfully","success");}}></i>
+                     <i className="fas fa-edit ms-2" onClick={()=>{props.updateNote(props.note); }}></i>
                </div>
               <p className="card-text">{props.note.description}</p>
               
