@@ -17,7 +17,7 @@ function SignUp(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/create_user", {
+        const response = await fetch("/api/auth/create_user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

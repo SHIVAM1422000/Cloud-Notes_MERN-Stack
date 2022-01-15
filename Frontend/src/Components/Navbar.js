@@ -12,7 +12,20 @@ function Navbar(props) {
 let location = useLocation();
 let history=useHistory();
 
+const handleAddDataClick=(e)=>{
+  
+  e.preventDefault();
+  if(localStorage.getItem('token')===null || localStorage.getItem('token')==="undefined"){
+     history.push('/login');
+  }else{
+    history.push('/addData');
+  }
+
+}
+
+// to="/addData"
 const handleLogOut=(e)=>{
+  e.preventDefault();
   // props.showAlert("Logged Out Successfully","success");
   console.log("Logout Clicked");
   localStorage.clear();
@@ -37,7 +50,7 @@ const handleLogOut=(e)=>{
           <Link className={`nav-link ${location.pathname==="/"?"active":""}`} aria-current="page" to="/">View Data</Link>
         </li>
         <li className="nav-item">
-          <Link className={`nav-link ${location.pathname==="/about"?"active":""}`}  to="/addData">Add New Data</Link>
+          <Link className={`nav-link ${location.pathname==="/about"?"active":""}`}  onClick={handleAddDataClick} >Add New Data</Link>
         </li>
       </ul>
       {!localStorage.getItem('token') ?
