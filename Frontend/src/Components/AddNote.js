@@ -72,7 +72,7 @@ function AddNote(props) {
 
     return (
         <div>
-             <h1 className='mt-3'> Add Your details</h1>
+             <h1 className='mt-3'> Add Your Details</h1>
            <div className="container mt-3">
            <form>
   <div className="mb-3">

@@ -31,7 +31,7 @@ function SignUp(props) {
             console.log('User  Created');
             console.log(json);
             localStorage.setItem('token', json.token); 
-            history.push("/");
+            history.push("/addData");
             props.showAlert("Signed Up Successfully","success");
 
         }
@@ -46,7 +46,7 @@ function SignUp(props) {
     return (
         <div className="container">
 
-             <h1>Create an account on Cloud Notes</h1>
+             <h1>Create an account</h1>
 
 
             <form onSubmit={handleSubmit}>
