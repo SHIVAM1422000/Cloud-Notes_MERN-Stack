@@ -3,7 +3,7 @@ connectToMongo();
 const express = require('express');
 const app = express();
 const port= process.env.PORT || 5000;
-
+console.log(process.env.PORT);
 //cors is a middle ware b/w frontend and backend to fetch data
 var cors = require('cors');
 app.use(cors());
