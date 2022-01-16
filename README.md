@@ -1,10 +1,54 @@
+<h5>Note:- Working on few bugs will realse it soon.
+Stay Tuned...!!!</h5>
+
+
+
+
+<h2>1. Login Required to continue to the application </h2> 
+<img src="https://user-images.githubusercontent.com/56889369/148630099-9fe59b77-760c-4c72-8c49-405b0510d6ff.JPG">
+
+<h2>2. Secured with JWS Token and Authentication along with password salting and hashing.</h2>
+<img src="https://user-images.githubusercontent.com/56889369/148630360-710d79c3-b7a6-477a-a630-5e653046ab27.JPG">
+
+
+
+
+<h2>2. Add Your Notes with description and tag.</h2>
+<img src="https://user-images.githubusercontent.com/56889369/148630098-f0f90039-a56e-4634-ab6d-c912a02b1604.JPG">
+
+
+<h2>3. Pop Alert</h2>
+<img src="https://user-images.githubusercontent.com/56889369/148630090-5b69750f-0472-40f8-93d8-07ca07e4b2f1.JPG">
+
+
+<h2>4. Added New Note To Your Collection</h2>
+<img src="https://user-images.githubusercontent.com/56889369/148630092-0cb6f541-d2e0-4da3-8845-f30294c9be87.JPG">
+
+
+
+<h2>5. Edit/Delete Your Notes</h2>
+<img src="https://user-images.githubusercontent.com/56889369/148630093-ed1211d4-40b3-4fdb-a939-6cebd12ca5e8.JPG">
+
+
+<h2>6. Your Edited Notes</h2>'
+<img src="https://user-images.githubusercontent.com/56889369/148630430-27fd2233-ee19-4487-8f94-7e1812c20ad4.JPG">
+
+
+
+
+*************************************** Ways To Install ******************************************
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## In the project directory, you can run:
+
+<h4>Clone The Repo using git clone or download the code </h4>
+
+### `npm i` 
+To install the node module folder
 
 ### `npm start`
 
