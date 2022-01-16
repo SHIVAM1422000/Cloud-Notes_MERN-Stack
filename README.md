@@ -1,4 +1,4 @@
-<a href="https://data-collector-mern-v2.herokuapp.com/login">Link To Application</a>
+<a href="https://data-collector-mern-v2.herokuapp.com">Link To Application</a>
 Stay Tuned...!!!</h5>
 
 
