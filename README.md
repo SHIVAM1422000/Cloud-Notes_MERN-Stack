@@ -1,4 +1,4 @@
-<h5>Note:- Working on few bugs will realse it soon.
+<a href="https://data-collector-mern-v2.herokuapp.com/login">Link To Application</a>
 Stay Tuned...!!!</h5>
 
 
