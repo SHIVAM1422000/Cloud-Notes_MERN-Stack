@@ -24,15 +24,4 @@ app.listen(port, () => {
 
 
 
-  // http://localhost:5000/api/auth/create_user
-
-
-  /** 
-   
-  {
-    "name":"Ladli",
-    "email":"radha86@gmail.com",
-    "password":"shyam"
-}
-
-**/
+ 
