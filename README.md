@@ -1,5 +1,5 @@
 <a href="https://data-collector-mern-v2.herokuapp.com">Link To Application</a>
-Stay Tuned...!!!</h5>
+<!-- Stay Tuned...!!!</h5> -->
 
 
 
